@@ -16,6 +16,6 @@
 
 ![transform.png](transform.png)
 
-* Inverse Transformed data using only 10% of wavelets
+* Inverse Transformed data using only 30% of wavelets
 
 ![inv_transform.png](inv_transform.png)

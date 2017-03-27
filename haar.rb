@@ -6,8 +6,8 @@ def transform(data,m)
     (2**(m-l-1)).times do |i|
       i1 = i*(2**(l+1))
       i2 = i1 + 2**l
-      s = (data[i1] + data[i2])*(2**-0.5)
-      d = (data[i1] - data[i2])*(2**-0.5)
+      s = (data[i1] + data[i2])/Math.sqrt(2.0)
+      d = (data[i1] - data[i2])/Math.sqrt(2.0)
       data[i1] = s
       data[i2] = d
     end
@@ -20,8 +20,8 @@ def inv_transform(data,m)
     (2**(m-l-1)).times do |i|
       i1 = i*(2**(l+1))
       i2 = i1 + 2**l
-      s = (data[i1] + data[i2])*(2**-0.5)
-      d = (data[i1] - data[i2])*(2**-0.5)
+      s = (data[i1] + data[i2])/Math.sqrt(2.0)
+      d = (data[i1] - data[i2])/Math.sqrt(2.0)
       data[i1] = s
       data[i2] = d
     end
@@ -48,15 +48,9 @@ transform(data,M)
 savefile("transform.dat",data)
 
 data2 = data.map{|x| x**2}.sort.reverse
-th = data2[N*0.1]
+th = data2[N*0.3]
 
-data.map! do 
-	|x| x**2 < th ? 0 : x
-end
-
-#N.times do |i|
-#  data[i] = 0 if data[i]**2 < th
-#end
+data.map!{|x| x**2 < th ? 0 : x }
 
 inv_transform(data,M)
 

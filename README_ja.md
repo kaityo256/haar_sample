@@ -14,14 +14,14 @@ Japanese/ [English](README.md)
 
 ## 結果
 
-* input Data
+* 入力データ
 
 ![original.png](original.png)
 
-* Transformed Data
+* 変換後のデータ
 
 ![transform.png](transform.png)
 
-* Inverse Transformed data using only 10% of wavelets
+* 変換されたウェーブレットのうち、重み上位30%のウェーブレットのみを使って逆変換した結果
 
 ![inv_transform.png](inv_transform.png)
